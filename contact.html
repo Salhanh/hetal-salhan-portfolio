@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+   <!-- Navbar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropbtn">About ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="timeline.html">Timeline</a></li>
+          </ul>
+        </li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Small Hero -->
+  <section class="small-hero">
+    <h1>Contact Me</h1>
+    <p>Let’s get in touch — I’d love to hear from you</p>
+  </section>
+
+  <!-- Contact Page -->
+  <section class="contact-page">
+    <div class="contact-container">
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h2>Send a Message</h2>
+        <form action="https://formspree.io/f/xkgvaode" method="POST">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="_replyto" required>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Contact Details -->
+      <div class="contact-info">
+        <h2>Contact Details</h2>
+        <p><i class="fa-solid fa-envelope"></i> you@example.com</p>
+        <p><i class="fa-brands fa-github"></i> github.com/yourname</p>
+        <p><i class="fa-brands fa-linkedin"></i> linkedin.com/in/yourname</p>
+        <p><i class="fa-solid fa-phone"></i> +1 234 567 890</p>
+      </div>
+    </div>
+  </section>
+
+  
+ <!-- ===== Footer ===== -->
+<footer class="bg-dark text-light" style=" position: relative ;bottom: 0; left: 0; width: 100%;">
+  <div class="container text-center">
+    <p>&copy; 2025 <strong>Hetal Salhan</strong>. All Rights Reserved.</p>
+    <div class="social-icons mt-2">
+      <a href="https://github.com/yourname" target="_blank"><i class="fab fa-github fa-lg"></i></a>
+      <a href="https://linkedin.com/in/yourname" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
+      <a href="https://twitter.com/yourname" target="_blank"><i class="fab fa-twitter fa-lg"></i></a>
+      <a href="mailto:you@example.com"><i class="far fa-envelope fa-lg"></i></a>
+    </div>
+  </div>
+</footer>
+
+
+
+
+  
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const dropdownBtn = document.querySelector(".dropbtn");
+    const dropdown = document.querySelector(".dropdown");
+
+    dropdownBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      dropdown.classList.toggle("active");
+    });
+
+    // Close dropdown if user clicks outside
+    window.addEventListener("click", function (e) {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("active");
+      }
+    });
+
+    // Add local Canada time before form submit
+    const contactForm = document.getElementById("contactForm");
+    contactForm.addEventListener("submit", function () {
+      const now = new Date();
+      const options = {
+        timeZone: "America/Toronto",
+        year: "numeric", month: "long", day: "numeric",
+        hour: "2-digit", minute: "2-digit", second: "2-digit"
+      };
+      document.getElementById("local_time").value = now.toLocaleString("en-CA", options);
+    });
+  });
+</script>
+
+
+
+
+
+</body>
+</html>
